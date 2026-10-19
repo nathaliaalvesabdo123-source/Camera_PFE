@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Camera PFE — Captura com Identificação</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="bg-glow bg-glow-1"></div>
+  <div class="bg-glow bg-glow-2"></div>
+
+  <header class="app-header">
+    <div class="logo">
+      <span class="logo-icon">📸</span>
+      <div>
+        <h1>Camera PFE</h1>
+        <p class="subtitle">Captura com filtro e identificação dinâmica</p>
+      </div>
+    </div>
+  </header>
+
+  <main class="app-main">
+    <section class="card">
+      <div class="field">
+        <label for="studentName">Identificação</label>
+        <div class="input-wrapper">
+          <span class="input-icon">👤</span>
+          <input
+            type="text"
+            id="studentName"
+            placeholder="Digite seu nome..."
+            maxlength="40"
+            value="Aluno(a) PFE"
+          />
+        </div>
+      </div>
+
+      <div class="field">
+        <label for="filterSelect">Efeito Visual</label>
+        <div class="input-wrapper">
+          <span class="input-icon">🎨</span>
+          <select id="filterSelect">
+            <option value="sepia(1) contrast(1.1) brightness(1.05)">Sépia Clássico</option>
+            <option value="grayscale(1) contrast(1.2)">Preto e Branco</option>
+            <option value="invert(1) hue-rotate(180deg)">Negativo</option>
+            <option value="saturate(2) contrast(1.2) brightness(1.1)">Vintage Vibrante</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="video-wrapper">
+        <video id="video" autoplay playsinline muted></video>
+        <div id="videoPlaceholder" class="placeholder">
+          <div class="placeholder-icon">📷</div>
+          <p class="placeholder-title">Câmera desligada</p>
+          <p class="placeholder-hint">Clique em <strong>Ligar Câmera</strong> para começar</p>
+        </div>
+        <div class="video-badge" id="videoBadge">
+          <span class="dot"></span>
+          <span id="videoBadgeText">Offline</span>
+        </div>
+      </div>
+
+      <div class="controls">
+        <button id="btnStart" class="btn btn-start">
+          <span class="btn-icon">🎥</span>
+          <span>Ligar Câmera</span>
+        </button>
+        <button id="btnStop" class="btn btn-stop" disabled>
+          <span class="btn-icon">⏹️</span>
+          <span>Desligar</span>
+        </button>
+        <button id="btnCapture" class="btn btn-capture" disabled>
+          <span class="btn-icon">📸</span>
+          <span>Capturar Foto</span>
+        </button>
+      </div>
+
+      <div id="statusMessage" class="status" role="alert" aria-live="polite"></div>
+    </section>
+
+    <section class="card result-card">
+      <div class="card-header">
+        <h2>Resultado da Captura</h2>
+        <button id="btnDownload" class="btn btn-download" disabled>
+          <span class="btn-icon">💾</span>
+          <span>Baixar PNG</span>
+        </button>
+      </div>
+      <div id="resultWrapper" class="result-wrapper">
+        <div class="empty-state">
+          <div class="empty-icon">🖼️</div>
+          <p>Nenhuma captura realizada ainda</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+
+
+  <script src="script.js"></script>
+</body>
+</html>
